@@ -1,0 +1,32 @@
+# SheAlert .gitignore
+
+# Large Raw Audio Datasets (~53 GB of raw wav/mp3/flv)
+audio data set fyp/
+
+
+# Resampled Audio Outputs
+shealert_audio_pipeline/output/audio_16k/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.venv/
+venv/
+env/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+

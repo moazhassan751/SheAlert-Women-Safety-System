@@ -1,0 +1,23 @@
+SheAlert — External Corpus Consolidation Summary
+==================================================
+Total clips retained: 31956
+Total clips rejected by QC: 0
+
+Rejection reasons:
+
+Class balance:
+  Distress: 7494 (23.5%)
+  Aggression: 6641 (20.8%)
+  Normal: 17821 (55.8%) <-- exceeds 40% cap (Section 10 rule — matters more once original clips are added)
+
+By source dataset:
+  semour: 10439
+  urbansound8k: 8358
+  urduspeech: 5611
+  cremad: 2542
+  esc50: 2000
+  urduser: 1500
+  audioset_scream: 844
+  ravdess: 384
+  urdu_dataset_master: 200
+  realworld_urdu: 78
