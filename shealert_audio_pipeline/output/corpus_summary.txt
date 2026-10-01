@@ -1,23 +1,162 @@
-SheAlert — External Corpus Consolidation Summary
-==================================================
-Total clips retained: 31956
-Total clips rejected by QC: 0
+SheAlert â€” External Corpus Consolidation Summary
+============================================================
+Total clips pre-deduplication: 31956
+Duplicates dropped by resolved path: 0
 
-Rejection reasons:
+Total clips retained after QC: 30264
+Total clips rejected by QC: 1692
 
-Class balance:
-  Distress: 7494 (23.5%)
-  Aggression: 6641 (20.8%)
-  Normal: 17821 (55.8%) <-- exceeds 40% cap (Section 10 rule — matters more once original clips are added)
+Rejection reasons breakdown:
+  low_snr: 1307
+  clipped: 323
+  too_short: 62
 
-By source dataset:
-  semour: 10439
-  urbansound8k: 8358
-  urduspeech: 5611
-  cremad: 2542
-  esc50: 2000
-  urduser: 1500
-  audioset_scream: 844
-  ravdess: 384
-  urdu_dataset_master: 200
-  realworld_urdu: 78
+Rejections by source dataset:
+  urbansound8k: 1398
+  esc50: 264
+  audioset_scream: 14
+  cremad: 8
+  semour: 4
+  urduspeech: 3
+  realworld_urdu: 1
+
+Rejection Crosstab (source_dataset x reason):
+reason           clipped  low_snr  too_short   All
+source_dataset                                    
+audioset_scream        0       14          0    14
+cremad                 0        8          0     8
+esc50                195       69          0   264
+realworld_urdu         1        0          0     1
+semour                 0        0          4     4
+urbansound8k         127     1213         58  1398
+urduspeech             0        3          0     3
+All                  323     1307         62  1692
+
+Group ID Report (Speaker / Grouping):
+  audioset_scream     :   830 distinct groups | per-file fallback rows: 0
+  cremad              :    91 distinct groups | per-file fallback rows: 0
+  esc50               :  1345 distinct groups | per-file fallback rows: 0
+  ravdess             :    24 distinct groups | per-file fallback rows: 0
+  realworld_urdu      :    77 distinct groups | per-file fallback rows: 77
+  semour              :    24 distinct groups | per-file fallback rows: 0
+  urbansound8k        :  1104 distinct groups | per-file fallback rows: 0
+  urdu_dataset_master :     9 distinct groups | per-file fallback rows: 0
+  urduser             :    10 distinct groups | per-file fallback rows: 0
+  urduspeech          :  1001 distinct groups | per-file fallback rows: 0
+
+Class balance (Overall Full Corpus):
+  Distress: 7474 (24.7%)
+  Aggression: 6633 (21.9%)
+  Normal: 16157 (53.4%) <-- exceeds 40% cap (Section 10 rule â€” matters more once original clips are added)
+
+By source dataset (Retained clips):
+  semour              : 10435
+  urbansound8k        : 6960
+  urduspeech          : 5608
+  cremad              : 2534
+  esc50               : 1736
+  urduser             : 1500
+  audioset_scream     : 830
+  ravdess             : 384
+  urdu_dataset_master : 200
+  realworld_urdu      : 77
+
+Class distribution per dataset:
+  audioset_scream      -> Distress: 830, Aggression: 0, Normal: 0
+  cremad               -> Distress: 1268, Aggression: 1266, Normal: 0
+  esc50                -> Distress: 0, Aggression: 0, Normal: 1736
+  ravdess              -> Distress: 192, Aggression: 192, Normal: 0
+  realworld_urdu       -> Distress: 0, Aggression: 38, Normal: 39
+  semour               -> Distress: 3479, Aggression: 3479, Normal: 3477
+  urbansound8k         -> Distress: 0, Aggression: 0, Normal: 6960
+  urdu_dataset_master  -> Distress: 0, Aggression: 100, Normal: 100
+  urduser              -> Distress: 500, Aggression: 500, Normal: 500
+  urduspeech           -> Distress: 1205, Aggression: 1058, Normal: 3345
+
+Training Manifest & Splits Summary:
+Total training manifest clips: 22368
+Retained non-ambient: 21568
+Subsampled ambient (urbansound8k + esc50): 800
+
+Training manifest overall class balance:
+  Distress    :  7474 (33.41%)
+  Aggression  :  6633 (29.65%)
+  Normal      :  8261 (36.93%)
+  Normal fraction (36.93%) is <= 40% cap!
+
+Training manifest class distribution per dataset:
+  audioset_scream      -> Distress: 830, Aggression: 0, Normal: 0
+  cremad               -> Distress: 1268, Aggression: 1266, Normal: 0
+  esc50                -> Distress: 0, Aggression: 0, Normal: 160
+  ravdess              -> Distress: 192, Aggression: 192, Normal: 0
+  realworld_urdu       -> Distress: 0, Aggression: 38, Normal: 39
+  semour               -> Distress: 3479, Aggression: 3479, Normal: 3477
+  urbansound8k         -> Distress: 0, Aggression: 0, Normal: 640
+  urdu_dataset_master  -> Distress: 0, Aggression: 100, Normal: 100
+  urduser              -> Distress: 500, Aggression: 500, Normal: 500
+  urduspeech           -> Distress: 1205, Aggression: 1058, Normal: 3345
+
+=== SPLIT VERIFICATION REPORT ===
+Group leakage across folds: 0 (PASS - zero overlap)
+
+Per-fold row counts and class distribution:
+  Fold 0  :  4458 clips -> Distress: 1495 (33.5%), Aggression: 1319 (29.6%), Normal: 1644 (36.9%)
+  Fold 1  :  4458 clips -> Distress: 1495 (33.5%), Aggression: 1319 (29.6%), Normal: 1644 (36.9%)
+  Fold 2  :  4458 clips -> Distress: 1494 (33.5%), Aggression: 1319 (29.6%), Normal: 1645 (36.9%)
+  Fold 3  :  4458 clips -> Distress: 1495 (33.5%), Aggression: 1319 (29.6%), Normal: 1644 (36.9%)
+  Fold 4  :  4459 clips -> Distress: 1495 (33.5%), Aggression: 1319 (29.6%), Normal: 1645 (36.9%)
+  Fold ood:    77 clips -> Distress: 0 (0.0%), Aggression: 38 (49.4%), Normal: 39 (50.6%)
+
+Per-fold dataset representation:
+  Fold 0: 9 datasets (All 9 datasets present)
+  Fold 1: 9 datasets (All 9 datasets present)
+  Fold 2: 9 datasets (All 9 datasets present)
+  Fold 3: 9 datasets (All 9 datasets present)
+  Fold 4: 9 datasets (All 9 datasets present)
+
+OOD Evaluation Set (realworld_urdu):
+  Total clips: 77
+    Distress    :   0 (0.0%)
+    Aggression  :  38 (49.4%)
+    Normal      :  39 (50.6%)
+  Note: RealWorld-Urdu has only 77 clips (0 Distress, 38 Aggression, 39 Normal). It lacks Distress examples entirely and is too small alone for a stable multi-class F1 metric. It serves as a supplemental cross-dataset evaluation check.
+
+=== CLIP_FRAC SUMMARY PER DATASET (RETAINED CLIPS) ===
+dataset              | clips  | median   | p99      | clips > 0.001
+-----------------------------------------------------------------
+audioset_scream      |    830 | 0.000000 | 0.029676 |            50
+cremad               |   2534 | 0.000000 | 0.000000 |             0
+esc50                |   1736 | 0.000000 | 0.000783 |             0
+ravdess              |    384 | 0.000000 | 0.000000 |             0
+realworld_urdu       |     77 | 0.000000 | 0.000086 |             0
+semour               |  10435 | 0.000000 | 0.018671 |           621
+urbansound8k         |   6960 | 0.000000 | 0.000090 |             0
+urdu_dataset_master  |    200 | 0.000000 | 0.002892 |            15
+urduser              |   1500 | 0.000000 | 0.000000 |             2
+urduspeech           |   5608 | 0.000000 | 0.000000 |             0
+
+=== BEFORE VS AFTER COMPARISON (AGAINST BACKUP) ===
+
+Retained Clips Count per Dataset (Before vs After):
+dataset              | Before  | After   | Diff   
+--------------------------------------------------
+audioset_scream      |     780 |     830 | +50    
+cremad               |    2534 |    2534 | 0      
+esc50                |    1736 |    1736 | 0      
+ravdess              |     384 |     384 | 0      
+realworld_urdu       |      77 |      77 | 0      
+semour               |    9814 |   10435 | +621   
+urbansound8k         |    6960 |    6960 | 0      
+urdu_dataset_master  |     185 |     200 | +15    
+urduser              |    1498 |    1500 | +2     
+urduspeech           |    5608 |    5608 | 0      
+--------------------------------------------------
+TOTAL                |   29576 |   30264 | +688   
+
+Split Fold Migration Analysis (splits.csv):
+  Total rows in backup splits: 21680
+  Total rows in new splits   : 22368
+  Common rows analyzed       : 21077
+  Unchanged fold assignments : 4874
+  Changed fold assignments   : 16203
+  Newly added rows in splits : 1291
