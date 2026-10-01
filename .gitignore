@@ -7,6 +7,10 @@ audio data set fyp/
 # Resampled Audio Outputs
 shealert_audio_pipeline/output/audio_16k/
 
+# Local pipeline backup snapshots
+shealert_audio_pipeline/output_backup_*/
+shealert_audio_pipeline/output_frozen_split_v1/
+
 # Python Cache & Bytecode
 __pycache__/
 *.py[cod]
