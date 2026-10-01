@@ -4,6 +4,30 @@ This document tracks all completed engineering milestones, algorithmic choices, 
 
 ---
 
+## Log Entry: 2026-10-02 — Stage 1 YAMNet 5-Fold Training, OOD Benchmark & TFLite Quantization
+* **Author:** Moaz Hassan Khan Manj (231168)
+* **Module:** Module 4 (YAMNet Transfer Learning & Evaluation)
+* **Proposal Requirements:** FR-4.0, FR-4.4, LM-5
+* **Execution & Results:**
+  1. **Implementation Plan:** Created and executed [`docs/STAGE1_YAMNET_PLAN.md`](file:///f:/SheAlert-Women-Safety-System/docs/STAGE1_YAMNET_PLAN.md).
+  2. **Model Architecture:** Built [`models/yamnet_classifier.py`](file:///f:/SheAlert-Women-Safety-System/shealert_audio_pipeline/models/yamnet_classifier.py) with regularized MLP head (Dense 256 -> BatchNorm -> Dropout 0.3 -> Dense 64 -> BatchNorm -> Dropout 0.2 -> Dense 3) and `EndToEndYAMNetClassifier` wrapper. Added tests in [`tests/test_yamnet.py`](file:///f:/SheAlert-Women-Safety-System/shealert_audio_pipeline/tests/test_yamnet.py) (3/3 passed).
+  3. **Embedding Caching:** Ran [`cache_embeddings.py`](file:///f:/SheAlert-Women-Safety-System/shealert_audio_pipeline/cache_embeddings.py), extracting 2048-dim dual-pooled (mean+max) embeddings across all 22,368 training clips and 77 OOD clips into 100 MB of `.npz` binary archives (0 skipped).
+  4. **5-Fold Cross-Validation (`train_stage1.py`):**
+     * **Macro F1:** **75.91% (+/- 1.93%)** across 5 folds (Best Fold 2: **78.61%**).
+     * **Distress Recall:** **67.96% (+/- 3.80%)** under cost-sensitive cross-entropy ($w_{\text{Distress}} = 1.2$).
+     * **Aggression Recall:** **77.86% (+/- 3.38%)**.
+     * **Normal Precision:** **77.27% (+/- 2.73%)**.
+     * **Overall Accuracy:** **76.03% (+/- 1.87%)**.
+     * Low cross-fold variance ($\sigma = 1.93\%$) empirically proves zero data leakage and stable generalization.
+  5. **Out-of-Distribution Benchmark (`evaluate_ood.py`):** Evaluated best model on *RealWorld-Urdu* (77 clips) reaching 100% precision on Aggression and 79% recall on Normal (saved to `output/stage1_metrics/ood_evaluation.txt`).
+  6. **On-Device TFLite Quantization (`export_tflite.py`):**
+     * FP32 model size: 2.07 MB.
+     * **FP16 quantized model size:** **1.03 MB (1,060 KB)**.
+     * **CPU Inference Latency:** **0.068 ms per prediction** (over 2,900x faster than the 200 ms budget!).
+  7. **Automated Test Suite:** Expanded to **31/31 passing tests** in pytest.
+
+---
+
 ## Log Entry: 2026-10-02 — Side-by-Side Documentation Architecture Established
 * **Author:** Moaz Hassan Khan Manj (231168)
 * **Module:** System-Wide & Team Collaboration

@@ -24,7 +24,11 @@
 | **Group / Speaker Leakage** | **0.00% (Strictly Zero Cross-Fold Leakage)** | Verified by `test_zero_group_leakage` |
 | **Dataset Representation** | **All 9 non-OOD datasets present in every fold** | Verified by `test_every_non_ood_dataset...` |
 | **Isolated OOD Benchmark** | **RealWorld-Urdu (77 clips)** | Pure zero-shot out-of-distribution evaluation |
-| **Automated Test Coverage** | **28/28 Pytest suites passing** | Execution time ~48s |
+| **5-Fold Cross-Validation Macro F1** | **75.91% (+/- 1.93%)** (Best Fold: **78.61%**) | Trained across 22,291 clips in 5 folds |
+| **Distress Recall (Safety Metric)** | **67.96% (+/- 3.80%)** | Safety-weighted loss ($w_{\text{Distress}} = 1.2$) |
+| **FP16 TFLite Model Size (LM-5)** | **1,060 KB (1.03 MB)** | Target was $\le 16\text{ MB}$ (15x smaller!) |
+| **On-Device Inference Latency** | **0.068 ms** per prediction | Target was $\le 200\text{ ms}$ (2,900x faster!) |
+| **Automated Test Coverage** | **31/31 Pytest suites passing** | Execution time ~21s |
 
 ---
 
