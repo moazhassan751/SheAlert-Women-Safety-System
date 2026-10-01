@@ -1,0 +1,22 @@
+SheAlert Stage 1 Audio Classifier — 5-Fold Cross-Validation Summary
+========================================================================
+Generated Date        : 2026-10-02 01:09:04
+Feature Representation: CONCAT (2048-dimensional)
+Distress Class Weight : 1.2
+Total Training Clips  : 22291 across 5 folds
+
+5-Fold Cross-Validation Results:
+  Macro F1-Score      : 75.91% (+/- 1.93%)
+  Distress Recall     : 67.96% (+/- 3.80%)  <-- Critical Safety Metric
+  Aggression Recall   : 77.86% (+/- 3.38%)
+  Normal Precision    : 77.27% (+/- 2.73%)
+  Overall Accuracy    : 76.03% (+/- 1.87%)
+
+Per-Fold Macro F1 Breakdown:
+  Fold 0 : 76.60%
+  Fold 1 : 75.76%
+  Fold 2 : 78.61%
+  Fold 3 : 75.95%
+  Fold 4 : 72.61%
+
+Best Performing Fold  : Fold 2 (Macro F1: 78.61%)

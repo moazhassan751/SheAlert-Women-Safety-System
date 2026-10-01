@@ -1,0 +1,26 @@
+SheAlert Stage 1 — Out-Of-Distribution (OOD) Benchmark Report
+========================================================================
+Evaluation Dataset    : RealWorld-Urdu (Held-out Field Recordings)
+Evaluated Model       : stage1_head_best.keras
+Total OOD Samples     : 77 clips
+Accuracy              : 44.16%
+
+Classification Report:
+              precision    recall  f1-score   support
+
+  Aggression       1.00      0.08      0.15        38
+      Normal       0.60      0.79      0.68        39
+
+   micro avg       0.62      0.44      0.52        77
+   macro avg       0.80      0.44      0.41        77
+weighted avg       0.80      0.44      0.42        77
+
+
+Full 3x3 Confusion Matrix (Rows=True, Cols=Pred: [0=Distress, 1=Aggression, 2=Normal]):
+  Distress (0)   : [0, 0, 0]  (Note: RealWorld-Urdu contains 0 distress clips)
+  Aggression (1) : [14, 3, 21]
+  Normal (2)     : [8, 0, 31]
+
+Analysis & Domain Shift Observations:
+- RealWorld-Urdu represents unconstrained smartphone field recordings from prior student work.
+- It tests zero-shot robustness against acoustic room reverberation, differing phone mic frequency responses, and ambient hiss without prior exposure.
