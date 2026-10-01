@@ -4,8 +4,9 @@
 audio data set fyp/
 
 
-# Resampled Audio Outputs
+# Resampled Audio Outputs & Cached Embeddings
 shealert_audio_pipeline/output/audio_16k/
+shealert_audio_pipeline/output/cached_embeddings/
 
 # Local pipeline backup snapshots
 shealert_audio_pipeline/output_backup_*/
