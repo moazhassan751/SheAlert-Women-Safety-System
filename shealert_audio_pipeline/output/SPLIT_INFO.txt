@@ -1,0 +1,10 @@
+SheAlert Audio Pipeline - Frozen Split Information
+=======================================================
+Generated Date : 2026-10-01 22:22:19
+Method         : Greedy smallest-bin-first + local search (move/swap)
+Chosen Seed    : 11
+Size Dev       : 0.0002 (0.02%)
+Class Dev (pp) : 0.02 percentage points
+Missing Sets   : 0
+SHA-256 Splits : c10e4f8aba15f1c67e27cb599de3a405b8f1be060d1c856729a313498c962c27
+Fold Sizes     : [4458, 4458, 4458, 4458, 4459]
