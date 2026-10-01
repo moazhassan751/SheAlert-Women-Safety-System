@@ -53,7 +53,9 @@ DATASET_ROOTS = {
     "urdu_dataset_master":  BASE_PATH / "URDU-Dataset-master",
     "realworld_urdu":       BASE_PATH / "RealWorld-Urdu",
     "semour":                BASE_PATH / "SEMOUR+",
+    # UrduSpeech
     "urduspeech":             BASE_PATH / "UrduSpeech",
+    "urduspeech_meta":        BASE_PATH / "sheAlert_urduspeech_std_manifest.csv",
 
     # Ambient / environmental
     "audioset_scream":       BASE_PATH / "AudioSet_Screaming" / "wav",
@@ -98,6 +100,11 @@ TARGET_SR = 16000          # Hz, matches FR-4.3 / Android AudioRecord spec
 MIN_SNR_DB = 3.0            # loose — this stage isn't the strict QC gate
 MAX_CLASS_FRACTION = 0.40  # no class exceeds 40% of the corpus (original clips only, per Section 10)
 
+# Clipping thresholds and exemptions
+CLIPPING_THRESHOLD = 0.999
+CLIPPING_MAX_FRACTION = 0.001
+CLIP_EXEMPT_DATASETS = ["semour", "urduser", "urdu_dataset_master", "audioset_scream"]
+
 # -----------------------------------------------------------------------
 # 5. OUTPUT
 # -----------------------------------------------------------------------
@@ -105,4 +112,19 @@ PIPELINE_ROOT = Path(__file__).resolve().parent
 OUTPUT_DIR = PIPELINE_ROOT / "output"
 OUTPUT_MANIFEST = OUTPUT_DIR / "unified_manifest.csv"
 OUTPUT_SUMMARY = OUTPUT_DIR / "corpus_summary.txt"
+OUTPUT_REJECTED_CLIPS = OUTPUT_DIR / "rejected_clips.csv"
+OUTPUT_TRAINING_MANIFEST = OUTPUT_DIR / "training_manifest.csv"
+OUTPUT_SPLITS = OUTPUT_DIR / "splits.csv"
+OUTPUT_SPLIT_INFO = OUTPUT_DIR / "SPLIT_INFO.txt"
+
+# -----------------------------------------------------------------------
+# 6. TRAINING SPLIT & AMBIENT SAMPLING CONFIGURATION
+# -----------------------------------------------------------------------
+RANDOM_SEED = 42
+BALANCED_SPLIT_SEED = 11
+AMBIENT_SAMPLE_TOTAL = 800
+AMBIENT_DATASETS = ["urbansound8k", "esc50"]
+N_SPLITS = 5
+OOD_DATASET = "realworld_urdu"
+
 
