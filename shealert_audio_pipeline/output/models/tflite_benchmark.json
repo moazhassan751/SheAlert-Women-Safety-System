@@ -1,0 +1,9 @@
+{
+  "source_model": "stage1_head_best.keras",
+  "input_feature_dim": 2048,
+  "fp32_model_size_kb": 2116.3203125,
+  "fp16_model_size_kb": 1060.07421875,
+  "fp32_latency_ms": 0.08061599801294506,
+  "fp16_latency_ms": 0.0683650013525039,
+  "timestamp": "2026-10-02 01:09:53"
+}
